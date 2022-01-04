@@ -1,0 +1,50 @@
+<div class="container white-bg py-2">
+    <div *ngIf="isEmptyCart" class="text-center py-2">
+        <h3>The Cart is Empty.</h3>
+        <a class="btn btn-primary" href="javascript:void(0)" routerLink="/home">Back to home</a>
+    </div>
+    <div *ngIf="!isEmptyCart">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end">
+                <a href="javascript:void()" class="btn btn-primary" (click)="clearCart()">Clear Cart</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-sm">
+                    <tbody>
+                        <tr *ngFor="let item of cart.items" class="align-middle">
+                            <td>
+                                <img class="product-img rounded img-fluid" [src]="item.product.picture" />
+                            </td>
+                            <td>{{item.quantity}}x <span *ngIf="item.product.isImported">Imported </span>{{item.product.name}}</td>
+                            <td><span *ngIf="item.quantity > 1">({{ item.quantity }} @ {{ item.product.sellValue | currency }})</span></td>
+                            <td>{{item.quantity * item.product.sellValue | currency}}</td>
+                            <td>
+                                <a href="javascript:void();" (click)="deleteItem(item)">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-end fw-bold">
+                <div>
+                    Subtotal: {{checkout.subtotal | currency}}
+                </div>
+                <div>
+                    Imported Product Taxes: {{checkout.importedTaxes | currency}}
+                </div>
+                <div>
+                    Sales Taxes: {{checkout.taxes | currency}}
+                </div>
+                <div>
+                    Total: {{checkout.total | currency}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

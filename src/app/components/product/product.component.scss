@@ -1,0 +1,47 @@
+.product {
+    &-container{
+        background-color: whitesmoke;
+        padding: 5px;
+        margin-bottom: 10px;
+        min-height: 200px;
+    }
+
+    &-img {
+        // width: 150px;
+        // height: 150px;
+        object-fit: cover;
+    }
+
+    &-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    &-badge {
+        font-size: 0.8rem;
+        font-weight: normal;
+    }
+
+    &-value {
+        font-size: 1.3rem;
+    }
+
+    &-controls {
+        padding-top: 10px;
+
+        &-minus, &-plus {
+            margin: 0px 5px;
+            font-weight: bold;
+        }
+        
+        &-quantity {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+
+    &-add-cart {
+        margin-top: 10px;
+    }
+}

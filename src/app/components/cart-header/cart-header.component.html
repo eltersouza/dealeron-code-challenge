@@ -1,0 +1,10 @@
+<li class="nav-item cart">
+    <button routerLink="/checkout" type="button" class="btn btn-primary position-relative">
+        <i class="bi bi-cart"></i>&nbsp;Cart
+        <span *ngIf="hasItemInCart"
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{itensQuantity}}
+            <span class="visually-hidden">unread messages</span>
+        </span>
+    </button>
+</li>

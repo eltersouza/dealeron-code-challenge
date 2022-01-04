@@ -1,0 +1,17 @@
+.white-bg {
+    background-color: white;
+}
+
+.logo {
+    &-img {
+        width: 150px;
+    }
+    
+    &-text {
+        font-family: 'Share Tech Mono', monospace;
+    }
+}
+
+.active {
+    font-weight: bold;
+}

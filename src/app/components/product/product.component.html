@@ -1,0 +1,43 @@
+<div class="product-container">
+    <div class="row">
+        <div class="col-3">
+            <img class="product-img rounded img-fluid" [src]="product.picture" />
+        </div>
+        <div class="col-9">
+            <div class="product-badge" *ngIf="product.isImported">
+                <span class="product-badge badge rounded-pill bg-primary">Imported</span>
+            </div>
+            <div class="product-name">{{product.name}}</div>
+            <div class="product-value">{{product.value | currency}}</div>
+            <div class="product-controls">
+                <form class="g-2" [formGroup]="productForm">
+                    <div class="row">
+                        <div class="col-auto">
+                            <button type="button" class="product-controls-minus btn btn-primary"
+                                (click)="minusClick()">-</button>
+                        </div>
+                        <div class="col-4">
+                                <input class="product-controls-quantity form-control" type="text" maxlength="2"
+                                    formControlName="quantity" [ngClass]="{'is-invalid': submitted && f['quantity'].errors}"
+                                    (blur)="quantityBlur($event)" />
+                                    <div *ngIf="submitted && f['quantity'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['quantity'].errors['required']">* required</div>
+                                        <div *ngIf="f['quantity'].errors['min']">* invalid</div>
+                                    </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="product-controls-plus btn btn-primary"
+                                (click)="plusClick()">+</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="product-add-cart">
+                <div class="d-grid">
+                    <button class="product-add-cart btn btn-primary" type="button" (click)="addToCart()">Add to
+                        Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
