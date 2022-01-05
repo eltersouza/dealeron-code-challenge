@@ -4,6 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+This software uses NodeJS (any active LTS or maintenance LTS version of it), therefore it's a **must have** runtime installed in order for it to work.
 Run `npm install` to install all dependencies of Angular.
 Then, run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
